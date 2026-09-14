@@ -1,0 +1,20 @@
+{
+  "overview": "SoundWave is a music hosting app where each upload is a post in a Twitter-like feed, with direct messaging, comments, playlists, and recommendations.",
+  "features": [
+    "Upload music as posts in a Twitter-like feed",
+    "Like, repost, share, download, and listen to tracks",
+    "Direct messaging between users",
+    "Comments and threaded replies on posts",
+    "Create and populate playlists",
+    "Personalized recommendations in the feed",
+    "Internet Identity sign-in for write actions"
+  ],
+  "category": "music",
+  "tags": [
+    "music",
+    "social",
+    "audio",
+    "streaming"
+  ],
+  "last_updated": "2026-09-14T07:21:02.012Z"
+}

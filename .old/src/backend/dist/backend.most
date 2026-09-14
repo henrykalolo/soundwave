@@ -1,0 +1,265 @@
+// Version: 4.0.0
+type AccessControlState__201339279 =
+  {
+    var adminAssigned : Bool;
+    userRoles : Map__386906547<Principal, UserRole__91647283>
+  };
+type CommentId__934356525 = Nat;
+type Comment__268331937 =
+  {
+    author : Principal;
+    createdAt : Int;
+    id : CommentId__934356525;
+    parentId : ?CommentId__934356525;
+    postId : PostId__893598998;
+    replyCount : Nat;
+    text : Text
+  };
+type Comment__841271198 =
+  {
+    author : Principal;
+    createdAt : Int;
+    id : Nat;
+    parentId : ?Nat;
+    postId : Nat;
+    replyCount : Nat;
+    text : Text
+  };
+type ConversationId__836495457 = Nat;
+type Conversation__630982685 =
+  {
+    createdAt : Int;
+    id : Nat;
+    lastMessage : ?Text;
+    lastMessageAt : ?Int;
+    lastSender : ?Principal;
+    participantA : Principal;
+    participantB : Principal;
+    unreadForA : Nat;
+    unreadForB : Nat
+  };
+type Conversation__748289622 =
+  {
+    createdAt : Int;
+    id : ConversationId__836495457;
+    lastMessage : ?Text;
+    lastMessageAt : ?Int;
+    lastSender : ?Principal;
+    participantA : Principal;
+    participantB : Principal;
+    unreadForA : Nat;
+    unreadForB : Nat
+  };
+type Data__265875254<K, V> = {var count : Nat__58649523; kvs : [var ?(K, V)]};
+type Data__859131645<T> = {var count : Nat__58649523; elements : [var ?T]};
+type ExternalBlob__220559234 = Blob;
+type Internal__161573640<K, V> =
+  {children : [var ?Node__430031793<K, V>]; data : Data__265875254<K, V>};
+type Internal__778364379<T> =
+  {children : [var ?Node__1045371124<T>]; data : Data__859131645<T>};
+type Leaf__1045638083<K, V> = {data : Data__265875254<K, V>};
+type Leaf__776840865<T> = {data : Data__859131645<T>};
+type List__1004628775<T> =
+  {
+    var blockIndex : Nat__58649523;
+    var blocks : [var [var ?T]];
+    var elementIndex : Nat__58649523
+  };
+type List__89170296<T> = List__1004628775<T>;
+type Map__13625999<K, V> =
+  {var root : Node__430031793<K, V>; var size : Nat__58649523};
+type Map__386906547<K, V> = Map__670138087<K, V>;
+type Map__670138087<K, V> = Map__13625999<K, V>;
+type MessageId__1019030634 = Nat;
+type Message__1051217703 =
+  {
+    conversationId : Nat;
+    createdAt : Int;
+    id : Nat;
+    sender : Principal;
+    text : Text
+  };
+type Message__727134279 =
+  {
+    conversationId : ConversationId__836495457;
+    createdAt : Int;
+    id : MessageId__1019030634;
+    sender : Principal;
+    text : Text
+  };
+type MusicPost__224955388 =
+  {
+    audio : Blob;
+    caption : Text;
+    createdAt : Int;
+    filename : Text;
+    id : Nat;
+    likeCount : Nat;
+    playCount : Nat;
+    repostCount : Nat;
+    title : Text;
+    uploader : Principal
+  };
+type MusicPost__47053577 =
+  {
+    audio : ExternalBlob__220559234;
+    caption : Text;
+    createdAt : Int;
+    filename : Text;
+    id : PostId__893598998;
+    likeCount : Nat;
+    playCount : Nat;
+    repostCount : Nat;
+    title : Text;
+    uploader : Principal
+  };
+type MusicPost__924697507 =
+  {
+    audio : Blob;
+    caption : Text;
+    createdAt : Int;
+    filename : Text;
+    id : Nat;
+    likeCount : Nat;
+    playCount : Nat;
+    repostCount : Nat;
+    title : Text;
+    uploader : Principal
+  };
+type Nat__58649523 = Nat__920180692;
+type Nat__920180692 = Nat;
+type NewActor__843027286 =
+  {
+    accessControlState : AccessControlState__201339279;
+    followers : Map__386906547<Principal, Set__195681557<Principal>>;
+    following : Map__386906547<Principal, Set__195681557<Principal>>;
+    likes : Map__386906547<Nat, Set__195681557<Principal>>;
+    posts : Map__386906547<Nat, MusicPost__924697507>;
+    reposts : Map__386906547<Nat, Set__195681557<Principal>>;
+    state : {var nextPostId : Nat}
+  };
+type NewActor__949675367 =
+  {
+    accessControlState : AccessControlState__201339279;
+    comments : Map__386906547<Nat, Comment__841271198>;
+    conversations : Map__386906547<Nat, Conversation__630982685>;
+    followers : Map__386906547<Principal, Set__195681557<Principal>>;
+    following : Map__386906547<Principal, Set__195681557<Principal>>;
+    likes : Map__386906547<Nat, Set__195681557<Principal>>;
+    messages : Map__386906547<Nat, List__89170296<Message__1051217703>>;
+    playlists : Map__386906547<Nat, Playlist__45744745>;
+    posts : Map__386906547<Nat, MusicPost__224955388>;
+    reposts : Map__386906547<Nat, Set__195681557<Principal>>;
+    state :
+      {
+        var nextCommentId : Nat;
+        var nextConversationId : Nat;
+        var nextMessageId : Nat;
+        var nextPlaylistId : Nat;
+        var nextPostId : Nat
+      }
+  };
+type Node__1045371124<T> =
+  {#internal : Internal__778364379<T>; #leaf : Leaf__776840865<T>};
+type Node__430031793<K, V> =
+  {#internal : Internal__161573640<K, V>; #leaf : Leaf__1045638083<K, V>};
+type OldActor__402068192 = {};
+type OldActor__762840297 =
+  {
+    accessControlState : AccessControlState__201339279;
+    followers : Map__386906547<Principal, Set__195681557<Principal>>;
+    following : Map__386906547<Principal, Set__195681557<Principal>>;
+    likes : Map__386906547<Nat, Set__195681557<Principal>>;
+    posts : Map__386906547<Nat, MusicPost__224955388>;
+    reposts : Map__386906547<Nat, Set__195681557<Principal>>;
+    state : {var nextPostId : Nat}
+  };
+type PlaylistId__115301109 = Nat;
+type Playlist__45744745 =
+  {
+    createdAt : Int;
+    id : Nat;
+    name : Text;
+    owner : Principal;
+    trackIds : [Nat]
+  };
+type Playlist__632568007 =
+  {
+    createdAt : Int;
+    id : PlaylistId__115301109;
+    name : Text;
+    owner : Principal;
+    trackIds : [PostId__893598998]
+  };
+type PostId__893598998 = Nat;
+type Set__195681557<T> = Set__29061695<T>;
+type Set__29061695<T> =
+  {var root : Node__1045371124<T>; var size : Nat__58649523};
+type UserRole__91647283 = {#admin; #guest; #user};
+{
+  "20260914_000000" : (_old : OldActor__402068192) -> NewActor__843027286;
+  "20260914_010000" : (old : OldActor__762840297) -> NewActor__949675367
+}
+actor  {
+  stable accessControlState :
+    {
+      var adminAssigned : Bool;
+      userRoles : Map__386906547<Principal, UserRole__91647283>
+    };
+  stable comments :
+    {
+      var root : Node__430031793<CommentId__934356525, Comment__268331937>;
+      var size : Nat__58649523
+    };
+  stable conversations :
+    {
+      var root :
+        Node__430031793<ConversationId__836495457, Conversation__748289622>;
+      var size : Nat__58649523
+    };
+  stable followers :
+    {
+      var root : Node__430031793<Principal, Set__195681557<Principal>>;
+      var size : Nat__58649523
+    };
+  stable following :
+    {
+      var root : Node__430031793<Principal, Set__195681557<Principal>>;
+      var size : Nat__58649523
+    };
+  stable likes :
+    {
+      var root : Node__430031793<PostId__893598998, Set__195681557<Principal>>;
+      var size : Nat__58649523
+    };
+  stable messages :
+    {
+      var root :
+        Node__430031793<ConversationId__836495457,
+                         List__89170296<Message__727134279>>;
+      var size : Nat__58649523
+    };
+  stable playlists :
+    {
+      var root : Node__430031793<PlaylistId__115301109, Playlist__632568007>;
+      var size : Nat__58649523
+    };
+  stable posts :
+    {
+      var root : Node__430031793<PostId__893598998, MusicPost__47053577>;
+      var size : Nat__58649523
+    };
+  stable reposts :
+    {
+      var root : Node__430031793<PostId__893598998, Set__195681557<Principal>>;
+      var size : Nat__58649523
+    };
+  stable state :
+    {
+      var nextCommentId : Nat;
+      var nextConversationId : Nat;
+      var nextMessageId : Nat;
+      var nextPlaylistId : Nat;
+      var nextPostId : Nat
+    }
+};
